@@ -1,88 +1,88 @@
-# Vehicle Detection System Using Faster R-CNN 🚗🧠
+# Vehicle Detection System Using Faster R-CNN 🚗🚌🚚
 
-A deep learning based vehicle detection system built using the **Faster R-CNN** object detection architecture. This project detects vehicles (e.g., cars, buses, trucks) in images and notebooks using a pretrained Faster R-CNN model. It uses Jupyter Notebooks for inference and testing.
+This project implements an **image-based vehicle detection system** using the **Faster R-CNN** deep learning object detection algorithm.  
+The system is trained to **detect and classify 12 different types of vehicles** from a single image with bounding boxes.
 
 ---
 
-## 📌 Overview
+## 📌 Project Objective
 
-Faster R-CNN (Region-based Convolutional Neural Network) is a popular two-stage object detector that first proposes regions where objects might be, and then classifies them. Faster R-CNN balances accuracy and performance well for tasks like vehicle detection. :contentReference[oaicite:2]{index=2}
+The main objective of this project is to accurately detect **multiple vehicle categories** in road images using a **Faster R-CNN model**, providing precise localization and classification.
 
-This repository includes:
+---
 
-- ✅ Pretrained model files (`.pth`)  
-- ✅ Example test images  
-- ✅ Jupyter notebooks for running and testing the detection
+## 🚘 Vehicle Classes Detected
+
+The model detects the following **12 vehicle types**:
+
+| Class ID | Vehicle Type |
+|--------|--------------|
+| 1 | Big Bus |
+| 2 | Big Truck |
+| 3 | Bus-L |
+| 4 | Bus-S |
+| 5 | Car |
+| 6 | Mid Truck |
+| 7 | Small Bus |
+| 8 | Small Truck |
+| 9 | Truck-L |
+| 10 | Truck-M |
+| 11 | Truck-S |
+| 12 | Truck-XL |
+
+---
+
+## 🧠 Model Used
+
+- **Algorithm**: Faster R-CNN  
+- **Backbone Network**: ResNet-50 with Feature Pyramid Network (FPN)  
+- **Task**: Multi-class vehicle detection in images  
+
+Faster R-CNN uses a **Region Proposal Network (RPN)** to identify possible object regions and then classifies each region into one of the vehicle categories.
 
 ---
 
 ## 🗂 Project Structure
 
 ```
-.
-├── .vscode/
-├── dataset/ # (Optional) Dataset for training or testing
-├── fasterrcnn_resnet50_fpn*.pth # Pretrained model weights
-├── model.ipynb # Notebook showing model usage
-├── testing.ipynb # Notebook for testing detection
-├── test1.jpg … test4.jpg # Sample test images
-├── model_layers.txt # Model summary / architecture layers
-└── README.md # This readme
+dataset/ # Vehicle image dataset
+fasterrcnn_resnet50_fpn.pth # Trained Faster R-CNN model
+model.ipynb # Model loading and inspection
+testing.ipynb # Image detection testing
+test1.jpg
+test2.jpg
+test3.jpg
+test4.jpg
+model_layers.txt # Model architecture details
+README.md
 ```
+---
+
+## 📷 Detection Output
+- Bounding boxes are drawn around detected vehicles   
+- Each box is labeled with:
+  - Vehicle class name   
+  - Confidence score   
+The system can detect **multiple vehicles of different types in a single image**.
 
 ---
 
-## 🧰 Requirements
+## 📓 Notebooks Description
 
-Install dependencies (recommended in a virtual environment):
-```bash
-pip install torch torchvision matplotlib numpy
-```
-*(You can also add more dependencies like opencv-python if needed.)*
-
-🚀 **Quick Start — Run Inference**
-📌 1. Load the Model  
-Open `model.ipynb` and make sure you point the model to the correct `.pth` file.
-
-Example Python snippet:
-```python
-import torch from torchvision.models.detection import fasterrcnn_resnet50_fpn 
-model = fasterrcnn_resnet50_fpn(pretrained=False)
-torch.load_state_dict(torch.load("fasterrcnn_resnet50_fpn.pth"))
-model.eval()
-def transform(image):
-    # define your image transformation here if needed 
-def predictions = model([transform(img)])
-def visualize_bounding_boxes(predictions, img)  # Implement visualization as needed.
-```
-📌 2. Run Detection on an Image  
-```python 
-pil_image = Image.open("test1.jpg") 
-predictions = model([transform(pil_image)]) 
-def visualize_bounding_boxes(predictions, pil_image)
-display results using Matplotlib or OpenCV.
-```
-🧪 **Example Notebooks**
-| Notebook | Purpose |
-| --- | --- |
-| `model.ipynb` | Load and inspect the model |
-| `testing.ipynb` | Test detection on sample images |
-
-🛠️ **How It Works (High Level)**
-- Feature extraction — Backbone CNN (ResNet-50) extracts features.
-- Region Proposal Network (RPN) — Suggests object-like regions.
-- Classification + Localization — Predicts category and bounding boxes for detected vehicles.
-
-📌 **Tips**
-✔ You can replace models with your own dataset and labels.
-✔ Try a GPU environment for faster inference (CUDA).
-'t Use larger datasets to train for better accuracy.
-'th Issues & Contributions If you find any problems or want to contribute:
-a Create a GitHub Issue describing your suggestion.
-b Fork the repository and make a Pull Request.
-'t License This project is open-source — feel free to use or modify it under standard GitHub terms. (Add your chosen license here.)
-
+| Notebook | Description |
+|--------|------------|
+| `model.ipynb` | Loads the Faster R-CNN model and inspects layers |
+| `testing.ipynb` | Runs detection on test images and visualizes results |
 ---
 
-### Want help customizing it?
-you want, tell me:		✔ What dataset you're using		✔ Whether you trained your own model		✔ The frameworks (PyTorch/TensorFlow) you used		I can tailor the README further! 🚀
+## 🛠 Applications
+- Traffic monitoring systems   
+- Smart city surveillance   
+- Intelligent transportation systems   
+
+
+
+---
+## 👤 Author
+Sandaru Nethmina Samarasekara
+GitHub: https://github.com/sandaruns2004
